@@ -1,0 +1,143 @@
+@use 'resets';
+$spacer: 1em;
+
+html {
+  overflow-x: hidden;
+}
+body {
+  background-image: url(../../assets/home/background-home-mobile.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: $spacer;
+  text-align: center;
+  color: #fff;
+  position: relative;
+  overflow-x: hidden;
+}
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  img {
+    width: min(10%, 35px);
+  }
+  .destination {
+    display: grid;
+    align-content: center;
+    background-color: transparent;
+    backdrop-filter: blur(12px);
+    position: absolute;
+    inset: 0 -100% 0 auto;
+    color: #fff;
+    text-align: start;
+    text-transform: uppercase;
+    font-family: 'Barlow Condensed', Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 400;
+    gap: $spacer * 1.5;
+    width: max(150px, 70%);
+    transition: inset 200ms linear;
+
+    p {
+      width: 80%;
+      margin-left: auto;
+      position: relative;
+      letter-spacing: 2.7px;
+    }
+    p.active::after {
+      content: '';
+      position: absolute;
+      inset: 0 0 0 auto;
+      width: 3px;
+      background-color: #fff;
+    }
+    .number {
+      font-weight: 700;
+    }
+  }
+  #nav-toggle {
+    width: 23px;
+    height: 17px;
+    position: relative;
+    z-index: 5;
+  }
+}
+.nav-line {
+  position: absolute;
+  inset: 0 auto auto auto;
+  width: 100%;
+  height: 2px;
+  background-color: #fff;
+  transform: translateY(-50%);
+  transition: transform 300ms linear, inset 300ms linear, opacity 100ms linear;
+
+  &-2 {
+    top: 50%;
+  }
+  &-3 {
+    top: auto;
+    bottom: 0;
+    transform: translateY(50%);
+  }
+}
+.nav-toggle-active {
+  .nav-line-1 {
+    transform: rotate(135deg);
+    inset: 50% auto auto auto;
+  }
+  .nav-line-2 {
+    opacity: 0;
+    inset: 50% auto auto auto;
+  }
+  .nav-line-3 {
+    top: 50%;
+    transform: rotate(-135deg);
+  }
+}
+section {
+  display: flex;
+  flex-direction: column;
+  margin-top: 2 * $spacer;
+
+  h1,
+  .travel {
+    text-transform: uppercase;
+    font-weight: 400;
+  }
+  h1 {
+    font-family: 'Bellefair', Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 3.5rem;
+    margin-block: $spacer * 0.2 $spacer * 0.15;
+  }
+  .travel {
+    font-family: 'Barlow Condensed', Verdana, Geneva, Tahoma, sans-serif;
+    order: -1;
+    color: #d0d6f9;
+    letter-spacing: 2.5px;
+  }
+  .text-body {
+    font-family: 'Barlow', Nunito, Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 400;
+    line-height: 2;
+    color: #d0d6f9;
+  }
+}
+.explore {
+  font-family: 'Bellefair', Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: 400;
+  padding: 20px;
+  width: max-content;
+  aspect-ratio: 1 / 1;
+  margin-inline: auto;
+  color: #0b0d17;
+  text-transform: uppercase;
+  letter-spacing: 1.25px;
+  border-radius: 50%;
+  background-color: #fff;
+  display: grid;
+  place-items: center;
+  margin-top: $spacer * 2;
+}
+.nav-toggle-active + .destination {
+  inset: 0 0 0 auto;
+}

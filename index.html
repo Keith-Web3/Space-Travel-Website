@@ -1,27 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Frontend Mentor | Space tourism website</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow&family=Barlow+Condensed&family=Bellefair&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="dist/css/index.css" />
+  </head>
+  <body>
+    <header>
+      <img src="assets/shared/logo.svg" alt="logo" />
+      <div class="line"></div>
+      <div id="nav-toggle">
+        <div class="nav-line nav-line-1"></div>
+        <div class="nav-line nav-line-2"></div>
+        <div class="nav-line nav-line-3"></div>
+      </div>
+      <div class="destination">
+        <p class="nav__home active"><span class="number">00</span> home</p>
+        <p class="nav__destination">
+          <span class="number">01</span> destination
+        </p>
+        <p class="nav__crew"><span class="number">02</span> crew</p>
+        <p class="nav__technology"><span class="number">03</span> technology</p>
+      </div>
+    </header>
+    <main>
+      <section>
+        <h1>space</h1>
+        <p class="travel">so, you want to travel to</p>
+        <p class="text-body">
+          Let’s face it; if you want to go to space, you might as well genuinely
+          go to outer space and not hover kind of on the edge of it. Well sit
+          back, and relax because we’ll give you a truly out of this world
+          experience!
+        </p>
+      </section>
+      <div class="explore">explore</div>
+    </main>
+    <script>
+      const navToggle = document.getElementById('nav-toggle')
+      const navItems = document.querySelectorAll('.destination p')
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
-  
-  <title>Frontend Mentor | Space tourism website</title>
-</head>
-<body>
-
-  00 Home
-  01 Destination
-  02 Crew
-  03 Technology
-
-  So, you want to travel to
-  Space
-  Let’s face it; if you want to go to space, you might as well genuinely go to 
-  outer space and not hover kind of on the edge of it. Well sit back, and relax 
-  because we’ll give you a truly out of this world experience!
-
-  Explore
-
-</body>
+      navToggle.addEventListener('click', function () {
+        this.classList.toggle('nav-toggle-active')
+      })
+      navItems.forEach(item => {
+        item.addEventListener('click', function () {
+          navItems.forEach(item => item.classList.remove('active'))
+          item.classList.toggle('active')
+        })
+      })
+    </script>
+  </body>
 </html>
