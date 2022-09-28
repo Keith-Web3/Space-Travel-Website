@@ -12,18 +12,30 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Barlow&family=Barlow+Condensed:wght@400;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Barlow&family=Barlow+Condensed:wght@400;700&family=Bellefair&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="./dist/css/moon.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <script src="index.js" defer></script>
+    <script src="moon.js" defer></script>
     <title>Frontend Mentor | Space tourism website</title>
   </head>
   <body>
     <header>
       <img src="assets/shared/logo.svg" alt="logo" />
       <div class="line"></div>
+      <div id="nav-toggle">
+        <div class="nav-line nav-line-1"></div>
+        <div class="nav-line nav-line-2"></div>
+        <div class="nav-line nav-line-3"></div>
+      </div>
       <div class="nav">
         <p class="nav__home"><span class="number">00</span> home</p>
-        <p class="nav__destination">
+        <p class="nav__destination active">
           <span class="number">01</span> destination
         </p>
         <p class="nav__crew"><span class="number">02</span> crew</p>
@@ -31,14 +43,22 @@
       </div>
     </header>
     <div class="subheader-container">
-      <p class="sub-header-01"><span>01</span> Destination</p>
-      <p class="sub-header-02"><span>02</span> Meet your crew</p>
-      <p class="sub-header-03"><span>03</span> Space launch 101</p>
+      <p class="sub-header-01">
+        <span class="number">01</span> Pick your destination
+      </p>
+      <p class="sub-header-02"><span class="number">02</span> Meet your crew</p>
+      <p class="sub-header-03">
+        <span class="number">03</span> Space launch 101
+      </p>
     </div>
     <main>
       <div class="destination">
         <div class="destination__image-container">
-          <img src="assets/destination/image-moon.png" alt="moon" />
+          <img
+            src="assets/destination/image-moon.png"
+            alt="moon"
+            class="active"
+          />
           <img src="assets/destination/image-mars.png" alt="mars" />
           <img src="assets/destination/image-europa.png" alt="europa" />
           <img src="assets/destination/image-titan.png" alt="titan" />
@@ -46,14 +66,14 @@
         <div class="destination__text-body">
           <div class="destination__nav">
             <ul>
-              <li>moon</li>
+              <li class="active">moon</li>
               <li>mars</li>
               <li>europa</li>
               <li>titan</li>
             </ul>
           </div>
           <div class="destination__desc-container">
-            <div class="destination__desc">
+            <div class="destination__desc active">
               <p class="destination__desc__name">Moon</p>
               <p class="destination__desc__text">
                 See our planet as you’ve never seen it before. A perfect
@@ -62,7 +82,7 @@
                 the Luna 2 and Apollo 11 landing sites.
               </p>
               <div class="line"></div>
-              <div class="destination_desc_travel">
+              <div class="destination__desc__travel">
                 <div class="distance">
                   <p>Avg. distance</p>
                   <p>384,400 km</p>
@@ -81,7 +101,7 @@
                 system. It’s two and a half times the size of Everest!
               </p>
               <div class="line"></div>
-              <div class="destination_desc_travel">
+              <div class="destination__desc__travel">
                 <div class="distance">
                   <p>Avg. distance</p>
                   <p>225 mil. km</p>
@@ -101,7 +121,7 @@
                 your snug wintery cabin.
               </p>
               <div class="line"></div>
-              <div class="destination_desc_travel">
+              <div class="destination__desc__travel">
                 <div class="distance">
                   <p>Avg. distance</p>
                   <p>628 mil. km</p>
@@ -121,7 +141,7 @@
                 Saturn.
               </p>
               <div class="line"></div>
-              <div class="destination_desc_travel">
+              <div class="destination__desc__travel">
                 <div class="distance">
                   <p>Avg. distance</p>
                   <p>1.6 bil. km</p>

@@ -11,6 +11,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="dist/css/index.css" />
+    <script src="index.js" defer></script>
   </head>
   <body>
     <header>
@@ -21,12 +22,16 @@
         <div class="nav-line nav-line-2"></div>
         <div class="nav-line nav-line-3"></div>
       </div>
-      <div class="destination">
+      <div class="nav">
         <p class="nav__home active"><span class="number">00</span> home</p>
         <p class="nav__destination">
           <span class="number">01</span> destination
         </p>
-        <p class="nav__crew"><span class="number">02</span> crew</p>
+        <p class="nav__crew">
+          <a href="destination-moon.html"
+            ><span class="number">02</span> crew</a
+          >
+        </p>
         <p class="nav__technology"><span class="number">03</span> technology</p>
       </div>
     </header>
@@ -43,19 +48,5 @@
       </section>
       <div class="explore">explore</div>
     </main>
-    <script>
-      const navToggle = document.getElementById('nav-toggle')
-      const navItems = document.querySelectorAll('.destination p')
-
-      navToggle.addEventListener('click', function () {
-        this.classList.toggle('nav-toggle-active')
-      })
-      navItems.forEach(item => {
-        item.addEventListener('click', function () {
-          navItems.forEach(item => item.classList.remove('active'))
-          item.classList.toggle('active')
-        })
-      })
-    </script>
   </body>
 </html>
