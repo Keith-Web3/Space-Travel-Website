@@ -71,6 +71,18 @@ body {
   color: #fff;
   position: relative;
   overflow-x: hidden;
+  display: grid;
+}
+@media (min-width: 470px) {
+  body {
+    background-image: url(../../assets/home/background-home-tablet.jpg);
+  }
+}
+@media (min-width: 850px) {
+  body {
+    background-image: url(../../assets/home/background-home-desktop.jpg);
+    padding: 3em 2em 2em;
+  }
 }
 
 header {
@@ -78,12 +90,33 @@ header {
   align-items: center;
   justify-content: space-between;
 }
+@media (min-width: 470px) {
+  header {
+    align-items: start;
+  }
+}
+@media (min-width: 850px) {
+  header {
+    align-items: center;
+    height: max-content;
+  }
+}
 header img {
   width: min(10%, 35px);
 }
+@media (min-width: 850px) {
+  header .line {
+    position: absolute;
+    width: 50%;
+    height: 1px;
+    background-color: #fff;
+    inset: 4.1em 0 auto 10%;
+    opacity: 0.25;
+  }
+}
 header .destination {
   display: grid;
-  align-content: center;
+  align-content: start;
   background-color: transparent;
   backdrop-filter: blur(12px);
   position: absolute;
@@ -96,12 +129,40 @@ header .destination {
   gap: 1.5em;
   width: max(150px, 70%);
   transition: inset 200ms linear;
+  padding-top: 6em;
+}
+@media (min-width: 470px) {
+  header .destination {
+    inset: 0 0 auto auto;
+    grid-auto-flow: column;
+    padding-inline: 1em;
+    background-color: rgba(128, 128, 128, 0.3);
+    backdrop-filter: blur(3px);
+    padding-top: 0;
+    width: unset;
+    background-color: rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(40.7742px);
+  }
+}
+@media (min-width: 850px) {
+  header .destination {
+    inset: 2em 0 auto auto;
+    gap: 2.5em;
+    padding-inline: 5em 8em;
+  }
 }
 header .destination p {
   width: 80%;
   margin-left: auto;
   position: relative;
   letter-spacing: 2.7px;
+  cursor: pointer;
+}
+@media (min-width: 470px) {
+  header .destination p {
+    width: unset;
+    padding-block: 1.5em;
+  }
 }
 header .destination p.active::after {
   content: "";
@@ -110,14 +171,37 @@ header .destination p.active::after {
   width: 3px;
   background-color: #fff;
 }
+@media (min-width: 470px) {
+  header .destination p.active::after {
+    inset: auto 0 0 0;
+    width: 80%;
+    margin-inline: auto;
+    height: 3px;
+  }
+}
 header .destination .number {
   font-weight: 700;
+}
+@media (min-width: 470px) {
+  header .destination .number {
+    display: none;
+  }
+}
+@media (min-width: 850px) {
+  header .destination .number {
+    display: unset;
+  }
 }
 header #nav-toggle {
   width: 23px;
   height: 17px;
   position: relative;
   z-index: 5;
+}
+@media (min-width: 470px) {
+  header #nav-toggle {
+    display: none;
+  }
 }
 
 .nav-line {
@@ -151,10 +235,32 @@ header #nav-toggle {
   transform: rotate(-135deg);
 }
 
+main {
+  margin-top: auto;
+}
+@media (min-width: 850px) {
+  main {
+    display: grid;
+    grid-template-columns: 60% 40%;
+    width: min(90%, 1050px);
+    margin-inline: auto;
+  }
+}
+
 section {
   display: flex;
   flex-direction: column;
   margin-top: 2em;
+}
+@media (min-width: 470px) {
+  section {
+    padding-top: 2em;
+  }
+}
+@media (min-width: 850px) {
+  section {
+    text-align: start;
+  }
 }
 section h1,
 section .travel {
@@ -165,6 +271,17 @@ section h1 {
   font-family: "Bellefair", Verdana, Geneva, Tahoma, sans-serif;
   font-size: 3.5rem;
   margin-block: 0.2em 0.15em;
+}
+@media (min-width: 470px) {
+  section h1 {
+    font-size: 5rem;
+  }
+}
+@media (min-width: 850px) {
+  section h1 {
+    font-size: 7rem;
+    margin-block: 0;
+  }
 }
 section .travel {
   font-family: "Barlow Condensed", Verdana, Geneva, Tahoma, sans-serif;
@@ -177,6 +294,15 @@ section .text-body {
   font-weight: 400;
   line-height: 2;
   color: #d0d6f9;
+  max-width: 485px;
+  margin-inline: auto;
+}
+@media (min-width: 850px) {
+  section .text-body {
+    margin-inline: unset;
+    max-width: 400px;
+    font-size: 1.2rem;
+  }
 }
 
 .explore {
@@ -194,6 +320,16 @@ section .text-body {
   display: grid;
   place-items: center;
   margin-top: 2em;
+  cursor: pointer;
+}
+@media (min-width: 850px) {
+  .explore {
+    font-size: 2rem;
+    padding: 10px;
+    height: 230px;
+    margin-top: auto;
+    margin-inline: auto 0;
+  }
 }
 
 .nav-toggle-active + .destination {
