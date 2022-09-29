@@ -1,12 +1,23 @@
 @use 'resets';
 $spacer: 1em;
-
+@mixin gridoverlap {
+  display: grid;
+  grid-template: 1fr / 1fr;
+}
+@mixin gridoverlapchild {
+  grid-row: 1 / 2;
+  grid-column: 1 / 2;
+}
 html,
 body {
   overflow-x: hidden;
 }
 body {
   background-image: url(../../assets/destination/background-destination-mobile.jpg);
+  transition: background-image 300ms linear;
+  &.crew-background {
+    background-image: url(../../assets/crew/background-crew-mobile.jpg);
+  }
   background-size: cover;
   background-repeat: no-repeat;
   position: relative;
@@ -14,10 +25,18 @@ body {
   color: #fff;
   @media (min-width: 470px) {
     background-image: url(../../assets/destination/background-destination-tablet.jpg);
+    &.crew-background {
+      background-image: url(../../assets/crew/background-crew-tablet.jpg);
+    }
+    padding-bottom: 0;
   }
   @media (min-width: 850px) {
-    padding: 3 * $spacer 2 * $spacer 2 * $spacer;
+    display: grid;
+    padding: 3 * $spacer 2 * $spacer 0;
     background-image: url(../../assets/destination/background-destination-desktop.jpg);
+    &.crew-background {
+      background-image: url(../../assets/crew/background-crew-desktop.jpg);
+    }
   }
 }
 header {
@@ -60,6 +79,7 @@ header {
     width: max(150px, 70%);
     transition: inset 200ms linear;
     padding-top: $spacer * 6;
+    z-index: 1;
 
     @media (min-width: 470px) {
       inset: 0 0 auto auto;
@@ -158,12 +178,12 @@ header {
 .subheader-container {
   font-family: 'Barlow Condensed', Verdana, Geneva, Tahoma, sans-serif;
   font-weight: 400;
-  display: grid;
-  grid-template: 1fr / 1fr;
+  @include gridoverlap();
   margin-block: $spacer $spacer * 1.5;
   letter-spacing: 2.7px;
   text-transform: uppercase;
   text-align: center;
+  position: relative;
   @media (min-width: 470px) {
     margin-top: $spacer * 2;
     text-align: start;
@@ -172,13 +192,12 @@ header {
   .sub-header-01,
   .sub-header-02,
   .sub-header-03 {
-    grid-column: 1 / 2;
-    grid-row: 1 / 2;
+    @include gridoverlapchild();
     @media (min-width: 850px) {
       font-size: 1.25rem;
     }
   }
-  .sub-header-02,
+  .sub-header-01,
   .sub-header-03 {
     display: none;
   }
@@ -187,18 +206,21 @@ header {
     opacity: 0.25;
   }
 }
+main {
+  @media (min-width: 850px) {
+    display: grid;
+  }
+}
 .destination {
   max-width: 490px;
   margin-inline: auto;
 
   &__image-container {
-    display: grid;
-    grid-template: 1fr / 1fr;
+    @include gridoverlap();
     img {
       width: 60%;
       margin-inline: auto;
-      grid-column: 1 / 2;
-      grid-row: 1 / 2;
+      @include gridoverlapchild();
       opacity: 0;
       &.active {
         opacity: 1;
@@ -245,15 +267,13 @@ header {
   &__desc-container {
     text-align: center;
     font-weight: 400;
-    display: grid;
-    grid-template: 1fr/ 1fr;
+    @include gridoverlap();
     @media (min-width: 850px) {
       text-align: start;
     }
 
     .destination__desc {
-      grid-row: 1 / 2;
-      grid-column: 1 / 2;
+      @include gridoverlapchild();
       display: none;
       &.active {
         display: block;
@@ -312,7 +332,126 @@ header {
     max-width: unset;
   }
 }
-.crew,
-.technology {
-  display: none;
+.crew {
+  display: flex;
+  flex-direction: column;
+  max-width: 466px;
+  margin-inline: auto;
+  @media (min-width: 850px) {
+    display: grid;
+    grid-template: auto 1fr / repeat(2, 1fr);
+    grid-template-areas: 'desc img' 'nav img';
+    margin-bottom: 0;
+    max-width: unset;
+    justify-content: center;
+    align-items: center;
+    margin-top: auto;
+  }
+
+  &__img-container {
+    @extend .destination__image-container;
+    border-bottom: 1px solid #383b4b;
+    order: -2;
+    @media (min-width: 470px) {
+      order: 3;
+      border-bottom: none;
+      margin-top: $spacer;
+    }
+    @media (min-width: 850px) {
+      grid-area: img;
+      position: unset;
+    }
+
+    img {
+      display: none;
+      max-width: 299px;
+      @media (min-width: 850px) {
+        max-width: 420px;
+      }
+      &.active {
+        display: block;
+      }
+    }
+  }
+  &__desc-container {
+    @include gridoverlap();
+    @media (min-width: 850px) {
+      grid-area: desc;
+      max-width: 440px;
+    }
+
+    .crew__desc {
+      text-align: center;
+      margin-bottom: $spacer * 1.5;
+      display: none;
+      @media (min-width: 850px) {
+        text-align: start;
+      }
+      &.active {
+        display: block;
+      }
+      @include gridoverlapchild();
+
+      .role {
+        font-family: 'Bellefair', Verdana, Geneva, Tahoma, sans-serif;
+        font-weight: 400;
+        opacity: 0.5;
+        text-transform: uppercase;
+      }
+      .name {
+        @extend .role;
+        opacity: 1;
+        font-size: 1.4rem;
+        margin-block: $spacer * 0.2 $spacer * 0.3;
+        @media (min-width: 850px) {
+          font-size: 2rem;
+        }
+      }
+      &__text {
+        color: #d0d6f9;
+        font-family: 'Barlow', Verdana, Geneva, Tahoma, sans-serif;
+        font-weight: 400;
+        @media (min-width: 850px) {
+          font-size: 1.15rem;
+        }
+        @media (min-width: 1024px) {
+          padding-right: 10%;
+        }
+      }
+    }
+  }
+  &__nav {
+    display: flex;
+    width: max-content;
+    gap: $spacer;
+    order: -1;
+    margin: $spacer * 1.5 auto;
+    @media (min-width: 470px) {
+      order: unset;
+      margin-block: 0;
+    }
+    @media (min-width: 850px) {
+      grid-area: nav;
+      margin-inline: 0;
+    }
+
+    &__item {
+      width: 10px;
+      aspect-ratio: 1 / 1;
+      border-radius: 50%;
+      opacity: 0.17;
+      background-color: #fff;
+      cursor: pointer;
+      &.active {
+        opacity: 1;
+      }
+    }
+  }
+}
+.destination,
+.technology,
+.crew {
+  &.unactive {
+    display: none;
+  }
 }

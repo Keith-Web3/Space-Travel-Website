@@ -114,7 +114,7 @@ header img {
     opacity: 0.25;
   }
 }
-header .destination {
+header .nav {
   display: grid;
   align-content: start;
   background-color: transparent;
@@ -132,12 +132,10 @@ header .destination {
   padding-top: 6em;
 }
 @media (min-width: 470px) {
-  header .destination {
+  header .nav {
     inset: 0 0 auto auto;
     grid-auto-flow: column;
     padding-inline: 1em;
-    background-color: rgba(128, 128, 128, 0.3);
-    backdrop-filter: blur(3px);
     padding-top: 0;
     width: unset;
     background-color: rgba(255, 255, 255, 0.04);
@@ -145,13 +143,13 @@ header .destination {
   }
 }
 @media (min-width: 850px) {
-  header .destination {
+  header .nav {
     inset: 2em 0 auto auto;
     gap: 2.5em;
     padding-inline: 5em 8em;
   }
 }
-header .destination p {
+header .nav p {
   width: 80%;
   margin-left: auto;
   position: relative;
@@ -159,12 +157,12 @@ header .destination p {
   cursor: pointer;
 }
 @media (min-width: 470px) {
-  header .destination p {
+  header .nav p {
     width: unset;
     padding-block: 1.5em;
   }
 }
-header .destination p.active::after {
+header .nav p.active::after {
   content: "";
   position: absolute;
   inset: 0 0 0 auto;
@@ -172,23 +170,23 @@ header .destination p.active::after {
   background-color: #fff;
 }
 @media (min-width: 470px) {
-  header .destination p.active::after {
+  header .nav p.active::after {
     inset: auto 0 0 0;
     width: 80%;
     margin-inline: auto;
     height: 3px;
   }
 }
-header .destination .number {
+header .nav .number {
   font-weight: 700;
 }
 @media (min-width: 470px) {
-  header .destination .number {
+  header .nav .number {
     display: none;
   }
 }
 @media (min-width: 850px) {
-  header .destination .number {
+  header .nav .number {
     display: unset;
   }
 }
@@ -332,7 +330,7 @@ section .text-body {
   }
 }
 
-.nav-toggle-active + .destination {
+.nav-toggle-active + .nav {
   inset: 0 0 0 auto;
 }
 

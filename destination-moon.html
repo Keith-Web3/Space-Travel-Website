@@ -15,6 +15,10 @@
       href="https://fonts.googleapis.com/css2?family=Barlow&family=Barlow+Condensed:wght@400;700&family=Bellefair&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
     <link rel="stylesheet" href="./dist/css/moon.css" />
     <link
       rel="stylesheet"
@@ -34,7 +38,9 @@
         <div class="nav-line nav-line-3"></div>
       </div>
       <div class="nav">
-        <p class="nav__home"><span class="number">00</span> home</p>
+        <p class="nav__home">
+          <a href="index.html"><span class="number">00</span> home</a>
+        </p>
         <p class="nav__destination active">
           <span class="number">01</span> destination
         </p>
@@ -155,15 +161,19 @@
           </div>
         </div>
       </div>
-      <div class="crew">
+      <div class="crew unactive">
         <div class="crew__img-container">
-          <img src="assets/crew/image-douglas-hurley.png " alt="hurley" />
+          <img
+            src="assets/crew/image-douglas-hurley.png "
+            alt="hurley"
+            class="active"
+          />
           <img src="assets/crew/image-mark-shuttleworth.png" alt="mark" />
           <img src="assets/crew/image-victor-glover.png" alt="victor" />
           <img src="assets/crew/image-anousheh-ansari.png" alt="ansari" />
         </div>
         <div class="crew__desc-container">
-          <div class="crew__desc">
+          <div class="crew__desc active">
             <p class="role">Commander</p>
             <p class="name">douglas hurley</p>
             <p class="crew__desc__text">
@@ -204,17 +214,17 @@
           </div>
         </div>
         <div class="crew__nav">
-          <div class="div"></div>
-          <div class="div"></div>
-          <div class="div"></div>
-          <div class="div"></div>
+          <div class="crew__nav__item active"></div>
+          <div class="crew__nav__item"></div>
+          <div class="crew__nav__item"></div>
+          <div class="crew__nav__item"></div>
         </div>
       </div>
-      <div class="technology">
+      <div class="technology unactive">
         <div class="technology__nav">
-          <div class="div">1</div>
-          <div class="div">2</div>
-          <div class="div">3</div>
+          <div class="technology__nav__item">1</div>
+          <div class="technology__nav__item">2</div>
+          <div class="technology__nav__item">3</div>
         </div>
         <div class="technology__desc-container">
           <div class="technology__desc">

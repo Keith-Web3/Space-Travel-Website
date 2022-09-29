@@ -5,6 +5,11 @@ const destinationImages = document.querySelectorAll(
 const destinationDesc = document.querySelectorAll(
   '.destination__desc-container .destination__desc'
 )
+const crewNav = document.querySelectorAll('.crew__nav__item')
+const crewDesc = document.querySelectorAll('.crew__desc')
+const crewImg = document.querySelectorAll('.crew__img-container img')
+const navItemsP = document.querySelectorAll('.nav p')
+const sections = document.querySelectorAll('main > div')
 
 destinationNavItems.forEach((item, index) => {
   item.addEventListener('click', function () {
@@ -33,4 +38,39 @@ destinationNavItems.forEach((item, index) => {
       )
     }
   })
+})
+
+crewNav.forEach((nav, index) => {
+  nav.addEventListener('click', function () {
+    if (this.classList.contains('active')) return
+    crewNav.forEach((nav, index) => {
+      nav.classList.remove('active')
+      crewImg[index].classList.remove('active')
+      crewDesc[index].classList.remove('active')
+    })
+    this.classList.add('active')
+    crewImg[index].classList.add('active')
+    crewDesc[index].classList.add('active')
+  })
+})
+
+function sectionEntrances() {
+  sections.forEach(section => {
+    section.classList.add('unactive')
+    section.classList.remove('animate__animated', 'animate__flipInY')
+  })
+}
+
+navItemsP[1].addEventListener('click', function () {
+  document.body.classList.remove('crew-background', 'technology-background')
+  sectionEntrances()
+  sections[0].classList.remove('unactive')
+  sections[0].classList.add('animate__animated', 'animate__flipInY')
+})
+
+navItemsP[2].addEventListener('click', function () {
+  document.body.classList.add('crew-background')
+  sectionEntrances()
+  sections[1].classList.remove('unactive')
+  sections[1].classList.add('animate__animated', 'animate__flipInY')
 })
