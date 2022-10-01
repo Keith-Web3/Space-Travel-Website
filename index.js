@@ -21,9 +21,3 @@ document.querySelectorAll('.index-class').forEach((el, idx) => {
     location = 'destination-moon.html'
   })
 })
-
-explore.addEventListener('click', function () {
-  sessionStorage.setItem('name', JSON.stringify('destination'))
-  sessionStorage.setItem('index', JSON.stringify(0))
-  location = 'destination-moon.html'
-})
