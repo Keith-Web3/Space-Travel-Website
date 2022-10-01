@@ -108,10 +108,12 @@ navItemsP[2].addEventListener('click', function () {
   sections[1].classList.remove('unactive')
   sections[1].classList.add('animate__animated', 'animate__flipInY')
   activeSubHead(1)
-  if (window.innerWidth <= 470) {
-    document.body.style.backgroundImage =
-      'url(../../assets/crew/background-crew-mobile.jpg)'
-  }
+  setTimeout(() => {
+    if (window.innerWidth <= 470) {
+      document.body.style.backgroundImage =
+        'url(../../assets/crew/background-crew-mobile.jpg)'
+    }
+  }, 2000)
 })
 navItemsP[3].addEventListener('click', function () {
   document.body.classList.remove('crew-background')
@@ -120,10 +122,12 @@ navItemsP[3].addEventListener('click', function () {
   sections[2].classList.remove('unactive')
   sections[2].classList.add('animate__animated', 'animate__flipInY')
   activeSubHead(2)
-  if (window.innerWidth <= 470) {
-    document.body.style.backgroundImage =
-      'url(../../assets/technology/background-technology-mobile.jpg)'
-  }
+  setTimeout(() => {
+    if (window.innerWidth <= 470) {
+      document.body.style.backgroundImage =
+        'url(../../assets/technology/background-technology-mobile.jpg)'
+    }
+  }, 2000)
 })
 
 function removeActiveClass() {
@@ -141,5 +145,3 @@ techNav.forEach((nav, index) => {
     )
   })
 })
-
-console.log(window.innerWidth)
