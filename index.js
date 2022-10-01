@@ -4,9 +4,19 @@ const navItems = document.querySelectorAll('.nav p')
 navToggle.addEventListener('click', function () {
   this.classList.toggle('nav-toggle-active')
 })
-navItems.forEach(item => {
+navItems.forEach((item, idx) => {
   item.addEventListener('click', function () {
     navItems.forEach(item => item.classList.remove('active'))
     item.classList.toggle('active')
+  })
+})
+document.querySelectorAll('.index-class').forEach((el, idx) => {
+  el.addEventListener('click', function () {
+    sessionStorage.setItem(
+      'name',
+      JSON.stringify(el.textContent.trim().slice(3))
+    )
+    sessionStorage.setItem('index', JSON.stringify(idx))
+    location = 'destination-moon.html'
   })
 })

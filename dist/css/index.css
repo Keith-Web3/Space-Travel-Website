@@ -58,6 +58,11 @@ select {
     scroll-behavior: auto !important;
   }
 }
+p > a {
+  text-decoration: none;
+  color: inherit;
+}
+
 html {
   overflow-x: hidden;
 }
@@ -156,6 +161,9 @@ header .nav p {
   letter-spacing: 2.7px;
   cursor: pointer;
 }
+header .nav p a {
+  text-decoration: none;
+}
 @media (min-width: 470px) {
   header .nav p {
     width: unset;
@@ -233,8 +241,10 @@ header #nav-toggle {
   transform: rotate(-135deg);
 }
 
-main {
-  margin-top: auto;
+@media (min-width: 470px) {
+  main {
+    margin-top: auto;
+  }
 }
 @media (min-width: 850px) {
   main {

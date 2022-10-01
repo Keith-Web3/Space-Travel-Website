@@ -83,6 +83,9 @@ header {
       position: relative;
       letter-spacing: 2.7px;
       cursor: pointer;
+      a {
+        text-decoration: none;
+      }
       @media (min-width: 470px) {
         width: unset;
         padding-block: $spacer * 1.5;
@@ -155,7 +158,9 @@ header {
   }
 }
 main {
-  margin-top: auto;
+  @media (min-width: 470px) {
+    margin-top: auto;
+  }
   @media (min-width: 850px) {
     display: grid;
     grid-template-columns: 60% 40%;

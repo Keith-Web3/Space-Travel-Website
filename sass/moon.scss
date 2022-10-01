@@ -18,6 +18,9 @@ body {
   &.crew-background {
     background-image: url(../../assets/crew/background-crew-mobile.jpg);
   }
+  &.technology-background {
+    background-image: url(../../assets/technology/background-technology-mobile.jpg);
+  }
   background-size: cover;
   background-repeat: no-repeat;
   position: relative;
@@ -28,6 +31,9 @@ body {
     &.crew-background {
       background-image: url(../../assets/crew/background-crew-tablet.jpg);
     }
+    &.technology-background {
+      background-image: url(../../assets/technology/background-technology-tablet.jpg);
+    }
     padding-bottom: 0;
   }
   @media (min-width: 850px) {
@@ -36,6 +42,9 @@ body {
     background-image: url(../../assets/destination/background-destination-desktop.jpg);
     &.crew-background {
       background-image: url(../../assets/crew/background-crew-desktop.jpg);
+    }
+    &.technology-background {
+      background-image: url(../../assets/technology/background-technology-desktop.jpg);
     }
   }
 }
@@ -192,14 +201,15 @@ header {
   .sub-header-01,
   .sub-header-02,
   .sub-header-03 {
+    display: none;
+    &.active {
+      display: block;
+    }
     @include gridoverlapchild();
     @media (min-width: 850px) {
       font-size: 1.25rem;
+      margin-block: $spacer;
     }
-  }
-  .sub-header-01,
-  .sub-header-03 {
-    display: none;
   }
   .number {
     font-weight: 700;
@@ -444,6 +454,137 @@ main {
       cursor: pointer;
       &.active {
         opacity: 1;
+      }
+    }
+  }
+}
+.technology {
+  display: flex;
+  flex-direction: column;
+  @media (min-width: 850px) {
+    flex-direction: row;
+    gap: $spacer * 3;
+    align-items: center;
+    justify-content: center;
+    width: calc(100% + (4 * $spacer));
+    transform: translateX(-2 * $spacer);
+    padding-left: $spacer * 2;
+  }
+  &__img-container {
+    order: -1;
+    width: calc(100% + (2 * $spacer));
+    transform: translateX(-1 * $spacer);
+    @include gridoverlap();
+    @media (min-width: 850px) {
+      width: min(50%, 450px);
+      transform: translateX(0);
+      margin-left: auto;
+      order: unset;
+    }
+    img {
+      width: calc(100% + $spacer);
+      @include gridoverlapchild();
+      opacity: 0;
+      transition: opacity 500ms linear;
+      @media (min-width: 850px) {
+        width: 100%;
+        &:first-child {
+          content: url('../../assets/technology/image-launch-vehicle-portrait.jpg');
+        }
+        &:nth-child(2) {
+          content: url('../../assets/technology/image-spaceport-portrait.jpg');
+        }
+        &:last-child {
+          content: url('../../assets/technology/image-space-capsule-portrait.jpg');
+        }
+      }
+      &.active {
+        opacity: 1;
+      }
+    }
+  }
+  &__nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: $spacer;
+    font-family: 'Bellefair', Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 400;
+    font-size: 1.15rem;
+    color: #fff;
+    margin-top: $spacer * 1.3;
+    cursor: pointer;
+    @media (min-width: 850px) {
+      flex-direction: column;
+      gap: $spacer * 2;
+      margin-top: 0;
+      margin-left: auto;
+    }
+
+    &__item {
+      width: 40px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      aspect-ratio: 1 / 1;
+      border: 1px solid rgba(#fff, 0.25);
+      @media (min-width: 850px) {
+        width: 55px;
+      }
+      &.active {
+        background-color: #fff;
+        color: #0b0d17;
+      }
+    }
+  }
+  &__desc-container {
+    margin-top: $spacer * 1.5;
+    @include gridoverlap();
+
+    .technology__desc {
+      text-align: center;
+      display: none;
+      @include gridoverlapchild();
+      @media (min-width: 850px) {
+        text-align: start;
+        width: max-content;
+      }
+      &.active {
+        display: unset;
+      }
+      .title {
+        font-family: 'Barlow Condensed', Verdana, Geneva, Tahoma, sans-serif;
+        font-weight: 400;
+        text-transform: uppercase;
+        letter-spacing: 2.36px;
+        color: #d0d6f9;
+      }
+      .technology__name {
+        font-family: 'Bellefair', Verdana, Geneva, Tahoma, sans-serif;
+        font-weight: 400;
+        text-transform: uppercase;
+        font-size: 1.3rem;
+        margin-block: $spacer * 0.3 $spacer * 0.4;
+        @media (min-width: 470px) {
+          font-size: 2rem;
+        }
+        @media (min-width: 850px) {
+          font-size: 2.4rem;
+          margin-block: 0;
+        }
+      }
+      &__text {
+        font-family: 'Barlow', Verdana, Geneva, Tahoma, sans-serif;
+        font-weight: 400;
+        color: #d0d6f9;
+        @media (min-width: 470px) {
+          max-width: 476px;
+          margin-inline: auto;
+        }
+        @media (min-width: 850px) {
+          font-size: 1.1rem;
+          max-width: 450px;
+        }
       }
     }
   }

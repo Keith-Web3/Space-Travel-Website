@@ -58,6 +58,11 @@ select {
     scroll-behavior: auto !important;
   }
 }
+p > a {
+  text-decoration: none;
+  color: inherit;
+}
+
 html,
 body {
   overflow-x: hidden;
@@ -75,6 +80,9 @@ body {
 body.crew-background {
   background-image: url(../../assets/crew/background-crew-mobile.jpg);
 }
+body.technology-background {
+  background-image: url(../../assets/technology/background-technology-mobile.jpg);
+}
 @media (min-width: 470px) {
   body {
     background-image: url(../../assets/destination/background-destination-tablet.jpg);
@@ -82,6 +90,9 @@ body.crew-background {
   }
   body.crew-background {
     background-image: url(../../assets/crew/background-crew-tablet.jpg);
+  }
+  body.technology-background {
+    background-image: url(../../assets/technology/background-technology-tablet.jpg);
   }
 }
 @media (min-width: 850px) {
@@ -92,6 +103,9 @@ body.crew-background {
   }
   body.crew-background {
     background-image: url(../../assets/crew/background-crew-desktop.jpg);
+  }
+  body.technology-background {
+    background-image: url(../../assets/technology/background-technology-desktop.jpg);
   }
 }
 
@@ -268,19 +282,22 @@ header #nav-toggle {
 .subheader-container .sub-header-01,
 .subheader-container .sub-header-02,
 .subheader-container .sub-header-03 {
+  display: none;
   grid-row: 1/2;
   grid-column: 1/2;
+}
+.subheader-container .sub-header-01.active,
+.subheader-container .sub-header-02.active,
+.subheader-container .sub-header-03.active {
+  display: block;
 }
 @media (min-width: 850px) {
   .subheader-container .sub-header-01,
 .subheader-container .sub-header-02,
 .subheader-container .sub-header-03 {
     font-size: 1.25rem;
+    margin-block: 1em;
   }
-}
-.subheader-container .sub-header-01,
-.subheader-container .sub-header-03 {
-  display: none;
 }
 .subheader-container .number {
   font-weight: 700;
@@ -563,6 +580,160 @@ header #nav-toggle {
 }
 .crew__nav__item.active {
   opacity: 1;
+}
+
+.technology {
+  display: flex;
+  flex-direction: column;
+}
+@media (min-width: 850px) {
+  .technology {
+    flex-direction: row;
+    gap: 3em;
+    align-items: center;
+    justify-content: center;
+    width: calc(100% + 4em);
+    transform: translateX(-2em);
+    padding-left: 2em;
+  }
+}
+.technology__img-container {
+  order: -1;
+  width: calc(100% + 2em);
+  transform: translateX(-1em);
+  display: grid;
+  grid-template: 1fr/1fr;
+}
+@media (min-width: 850px) {
+  .technology__img-container {
+    width: min(50%, 450px);
+    transform: translateX(0);
+    margin-left: auto;
+    order: unset;
+  }
+}
+.technology__img-container img {
+  width: calc(100% + 1em);
+  grid-row: 1/2;
+  grid-column: 1/2;
+  opacity: 0;
+  transition: opacity 500ms linear;
+}
+@media (min-width: 850px) {
+  .technology__img-container img {
+    width: 100%;
+  }
+  .technology__img-container img:first-child {
+    content: url("../../assets/technology/image-launch-vehicle-portrait.jpg");
+  }
+  .technology__img-container img:nth-child(2) {
+    content: url("../../assets/technology/image-spaceport-portrait.jpg");
+  }
+  .technology__img-container img:last-child {
+    content: url("../../assets/technology/image-space-capsule-portrait.jpg");
+  }
+}
+.technology__img-container img.active {
+  opacity: 1;
+}
+.technology__nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1em;
+  font-family: "Bellefair", Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: 400;
+  font-size: 1.15rem;
+  color: #fff;
+  margin-top: 1.3em;
+  cursor: pointer;
+}
+@media (min-width: 850px) {
+  .technology__nav {
+    flex-direction: column;
+    gap: 2em;
+    margin-top: 0;
+    margin-left: auto;
+  }
+}
+.technology__nav__item {
+  width: 40px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  aspect-ratio: 1/1;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+@media (min-width: 850px) {
+  .technology__nav__item {
+    width: 55px;
+  }
+}
+.technology__nav__item.active {
+  background-color: #fff;
+  color: #0b0d17;
+}
+.technology__desc-container {
+  margin-top: 1.5em;
+  display: grid;
+  grid-template: 1fr/1fr;
+}
+.technology__desc-container .technology__desc {
+  text-align: center;
+  display: none;
+  grid-row: 1/2;
+  grid-column: 1/2;
+}
+@media (min-width: 850px) {
+  .technology__desc-container .technology__desc {
+    text-align: start;
+    width: max-content;
+  }
+}
+.technology__desc-container .technology__desc.active {
+  display: unset;
+}
+.technology__desc-container .technology__desc .title {
+  font-family: "Barlow Condensed", Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 2.36px;
+  color: #d0d6f9;
+}
+.technology__desc-container .technology__desc .technology__name {
+  font-family: "Bellefair", Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: 400;
+  text-transform: uppercase;
+  font-size: 1.3rem;
+  margin-block: 0.3em 0.4em;
+}
+@media (min-width: 470px) {
+  .technology__desc-container .technology__desc .technology__name {
+    font-size: 2rem;
+  }
+}
+@media (min-width: 850px) {
+  .technology__desc-container .technology__desc .technology__name {
+    font-size: 2.4rem;
+    margin-block: 0;
+  }
+}
+.technology__desc-container .technology__desc__text {
+  font-family: "Barlow", Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: 400;
+  color: #d0d6f9;
+}
+@media (min-width: 470px) {
+  .technology__desc-container .technology__desc__text {
+    max-width: 476px;
+    margin-inline: auto;
+  }
+}
+@media (min-width: 850px) {
+  .technology__desc-container .technology__desc__text {
+    font-size: 1.1rem;
+    max-width: 450px;
+  }
 }
 
 .destination.unactive,
