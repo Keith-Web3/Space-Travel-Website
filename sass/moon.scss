@@ -1,5 +1,8 @@
 @use 'resets';
 $spacer: 1em;
+$crewImg: url(../../assets/crew/background-crew-mobile.jpg);
+$techImg: url(../../assets/technology/background-technology-mobile.jpg);
+
 @mixin gridoverlap {
   display: grid;
   grid-template: 1fr / 1fr;
@@ -16,10 +19,10 @@ body {
   background-image: url(../../assets/destination/background-destination-mobile.jpg);
   transition: background-image 300ms linear;
   &.crew-background {
-    background-image: url(../../assets/crew/background-crew-mobile.jpg);
+    background-image: $crewImg;
   }
   &.technology-background {
-    background-image: url(../../assets/technology/background-technology-mobile.jpg);
+    background-image: $techImg;
   }
   background-size: cover;
   background-repeat: no-repeat;
