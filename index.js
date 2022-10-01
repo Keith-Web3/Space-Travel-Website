@@ -1,5 +1,6 @@
 const navToggle = document.getElementById('nav-toggle')
 const navItems = document.querySelectorAll('.nav p')
+const explore = document.querySelector('.explore')
 
 navToggle.addEventListener('click', function () {
   this.classList.toggle('nav-toggle-active')
@@ -19,4 +20,8 @@ document.querySelectorAll('.index-class').forEach((el, idx) => {
     sessionStorage.setItem('index', JSON.stringify(idx))
     location = 'destination-moon.html'
   })
+})
+
+explore.addEventListener('click', function () {
+  location = 'destination-moon.html'
 })

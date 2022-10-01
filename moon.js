@@ -93,6 +93,9 @@ function sectionEntrances() {
   })
 }
 
+navItemsP[0].addEventListener('click', function () {
+  location = 'index.html'
+})
 navItemsP[1].addEventListener('click', function () {
   document.body.classList.remove('crew-background', 'technology-background')
   sectionEntrances()
