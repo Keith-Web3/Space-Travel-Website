@@ -23,6 +23,7 @@ document.querySelectorAll('.index-class').forEach((el, idx) => {
 })
 
 explore.addEventListener('click', function () {
+  sessionStorage.setItem('name', JSON.stringify('destination'))
   sessionStorage.setItem('index', JSON.stringify(0))
   location = 'destination-moon.html'
 })
