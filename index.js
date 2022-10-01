@@ -23,5 +23,6 @@ document.querySelectorAll('.index-class').forEach((el, idx) => {
 })
 
 explore.addEventListener('click', function () {
+  sessionStorage.setItem('index', JSON.stringify(0))
   location = 'destination-moon.html'
 })
