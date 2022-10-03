@@ -585,6 +585,7 @@ header #nav-toggle {
 .technology {
   display: flex;
   flex-direction: column;
+  padding-bottom: 4em;
 }
 @media (min-width: 850px) {
   .technology {

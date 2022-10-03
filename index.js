@@ -5,7 +5,7 @@ const explore = document.querySelector('.explore')
 navToggle.addEventListener('click', function () {
   this.classList.toggle('nav-toggle-active')
 })
-navItems.forEach((item, idx) => {
+navItems.forEach(item => {
   item.addEventListener('click', function () {
     navItems.forEach(item => item.classList.remove('active'))
     item.classList.toggle('active')
@@ -20,4 +20,9 @@ document.querySelectorAll('.index-class').forEach((el, idx) => {
     sessionStorage.setItem('index', JSON.stringify(idx))
     location = 'destination-moon.html'
   })
+})
+document.querySelector('.explore').addEventListener('click', function () {
+  sessionStorage.setItem('name', JSON.stringify('destination'))
+  sessionStorage.setItem('index', JSON.stringify(1))
+  location = 'destination-moon.html'
 })
